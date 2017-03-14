@@ -1,2 +1,4 @@
 # typescript
 typescript
+function
+this!!@

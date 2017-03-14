@@ -116,3 +116,5 @@ let buildNameFun:(fname:string, ...rest:string[]) => string = buildName5;
 
 /** 5.5 this */
 /** 5.5.1 this 和 箭头函数 */
+
+//this is important!!! see later!

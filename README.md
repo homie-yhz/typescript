@@ -1,4 +1,5 @@
 # typescript
 typescript
 function
-this!!@
+this!!
+泛型

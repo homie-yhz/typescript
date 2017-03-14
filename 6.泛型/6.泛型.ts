@@ -18,6 +18,7 @@ function identity(arg:any):any {
  * */
 //目的:需要一种方法使返回值的类型与传入参数的类型是相同的.
 //这里,我们使用了类型变量,它是一种特殊的变量,只用于表示类型而不是值
+/** 泛型函数 */
 function identity2<T>(arg:T):T {
     return arg;
 }
@@ -28,3 +29,15 @@ let output1 = identity2('myString');
 
 
 /** 6.2 使用泛型变量 */
+function identity3<T>(arg:T[]):T[]{
+    console.log(arg.length);
+    return arg;
+}
+//也可以这么写
+function indetity4<T>(arg: Array<T>):Array<T>{
+    console.log(arg.length);
+    return arg;
+}
+
+/** 6.3 泛型类型 */
+

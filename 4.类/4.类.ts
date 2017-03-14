@@ -165,6 +165,42 @@ class Animal4 {
 
 /** 3.6 存储器 不太懂*/
 
+/** 3.7 静态属性 static*/
+//上面的实例成员,是那些仅当累被实例化的时候才会被初始化的属性.
+//我们也可以双肩类的静态成员,这些属性存在于类本身上面而不是类的实例上.
+
+class Grid {
+    static origin = {x: 0, y: 0}; //用static(静态)修饰符来表示静态属性
+    constructor(public  scale:number) {
+    }
+
+    calculateDistanceFromOrigin(point:{x:number;y:number}) {
+        let xDist = (point.x - Grid.origin.x);
+        let yDist = (point.y - Grid.origin.y);
+        return Math.sqrt(xDist * xDist + yDist * yDist) / this.scale;
+    }
+}
+let grid1 = new Grid(1.0);
+let grid2 = new Grid(5.0);
+
+console.log(grid1.calculateDistanceFromOrigin({x: 10, y: 10}));
+console.log(grid2.calculateDistanceFromOrigin({x: 10, y: 10}));
+
+/** 3.8 抽象类   不懂*/
+// 抽象类中的抽象方法不包含具体实现并且必须在派生类中实现.
+// 抽象方法的语法与接口方法类似.两者都是定义方法签名但不包含方法体.
+// 然而,抽象方法必须包含 abstract 关键字并且可以包含访问修饰符
+/** 3.9 高级技巧*/
+/** 3.9.1 构造函数*/
+/** 3.9.2 把类当做接口来使用*/
+class Point {
+    x:number;
+    y:number;
+}
+interface Point3d extends Point {
+    z:number;
+}
+let point3d:Point3d = {x: 1, y: 2, z: 3};
 
 /**
  * 总结:

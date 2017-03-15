@@ -13,3 +13,4 @@ console.log(22222);
 let sym2=Symbol;
 let sym3 = Symbol();
 // 新增sym5 这个类型变量
+// 我范德萨范德萨

@@ -12,3 +12,4 @@ interface a{
 console.log(22222);
 let sym2=Symbol;
 let sym3 = Symbol();
+console.log(33333);

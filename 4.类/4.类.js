@@ -1,16 +1,11 @@
 /**
  * Created by yindi on 17/3/13.
  */
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 /** 1.基于类的集成并且对象是累构建出来的 */
 var Greeter = (function () {
     function Greeter(message) {
@@ -48,7 +43,7 @@ var Animal = (function () {
 var Snake = (function (_super) {
     __extends(Snake, _super);
     function Snake(name) {
-        return _super.call(this, name) || this;
+        _super.call(this, name); //要执行父类的构造方法,必须调用  super()方法
     }
     Snake.prototype.move = function (distance) {
         if (distance === void 0) { distance = 5; }
@@ -60,7 +55,7 @@ var Snake = (function (_super) {
 var Horse = (function (_super) {
     __extends(Horse, _super);
     function Horse(name) {
-        return _super.call(this, name) || this;
+        _super.call(this, name);
     }
     Horse.prototype.move = function (distance) {
         if (distance === void 0) { distance = 45; }
@@ -110,7 +105,7 @@ var Animal3 = (function () {
 var Rhino = (function (_super) {
     __extends(Rhino, _super);
     function Rhino() {
-        return _super.call(this, "Rhino") || this;
+        _super.call(this, "Rhino");
     }
     return Rhino;
 }(Animal3));
@@ -164,9 +159,9 @@ var Grid = (function () {
         var yDist = (point.y - Grid.origin.y);
         return Math.sqrt(xDist * xDist + yDist * yDist) / this.scale;
     };
+    Grid.origin = { x: 0, y: 0 }; //用static(静态)修饰符来表示静态属性
     return Grid;
 }());
-Grid.origin = { x: 0, y: 0 }; //用static(静态)修饰符来表示静态属性
 var grid1 = new Grid(1.0);
 var grid2 = new Grid(5.0);
 console.log(grid1.calculateDistanceFromOrigin({ x: 10, y: 10 }));

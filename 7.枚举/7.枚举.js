@@ -19,6 +19,7 @@ var Color;
 ;
 var c = Color.Green;
 //默认从 0 开始
+var Color;
 (function (Color) {
     Color[Color["Red"] = 1] = "Red";
     Color[Color["Green"] = 2] = "Green";
@@ -26,6 +27,7 @@ var c = Color.Green;
 })(Color || (Color = {}));
 ;
 var c = Color.Green;
+var Color;
 (function (Color) {
     Color[Color["Red"] = 1] = "Red";
     Color[Color["Green"] = 2] = "Green";
@@ -33,6 +35,7 @@ var c = Color.Green;
 })(Color || (Color = {}));
 ;
 var c = Color.Green;
+var Color;
 (function (Color) {
     Color[Color["Red"] = 1] = "Red";
     Color[Color["Green"] = 2] = "Green";

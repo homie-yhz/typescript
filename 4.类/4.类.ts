@@ -4,9 +4,9 @@
 
 /** 1.基于类的集成并且对象是累构建出来的 */
 class Greeter {   //声明:Greeter 类
-    greeting:string;     //声明:string 类型 的  属性:greeting
+    greeting: string;     //声明:string 类型 的  属性:greeting
 
-    constructor(message:string) {    //构造函数
+    constructor(message: string) {    //构造函数
         this.greeting = message;
     }
 
@@ -15,6 +15,21 @@ class Greeter {   //声明:Greeter 类
     }
 }
 let greeter = new Greeter('world');
+
+//我们还可以这样做
+class Greeter1 {
+    name:string;
+    age:number;
+
+    constructor(name: string, age: number) {
+        this.name = name;
+        this.age = age;
+    }
+    greet(){
+        return 'hello,'+this.name;
+    }
+}
+
 /**
  * 使用new 构造了一个 Greeter类的一个实例
  * 调用之前定义的构造函数
@@ -32,19 +47,19 @@ let greeter = new Greeter('world');
  */
 
 class Animal {
-    name:string;
+    name: string;
 
-    constructor(theName:string) {
+    constructor(theName: string) {
         this.name = theName;
     }
 
-    move(distance:number = 0) {
+    move(distance: number = 0) {
         console.log(`${this.name} moved ${distance}m`);
     }
 }
 
 class Snake extends Animal {  //extends 来扩展父类
-    constructor(name:string) {
+    constructor(name: string) {
         super(name);   //要执行父类的构造方法,必须调用  super()方法
     }
 
@@ -56,7 +71,7 @@ class Snake extends Animal {  //extends 来扩展父类
 
 
 class Horse extends Animal {
-    constructor(name:string) {
+    constructor(name: string) {
         super(name);
     }
 
@@ -67,7 +82,7 @@ class Horse extends Animal {
 }
 
 let sam = new Snake("Sammy the Python");
-let tom:Animal = new Horse("Tommy the Palomino");
+let tom: Animal = new Horse("Tommy the Palomino");
 //注意:这里虽然给tom 指定了 Animal 类型,单因为他的值是Horse, tom.move(34) 会调用horse 里面的重写方法
 
 sam.move();
@@ -86,30 +101,30 @@ tom.move(34);
 //我们同时也可以明确的将一个成员标记成  public
 
 class Animal1 {
-    public name:string;
+    public name: string;
 
-    public constructor(theName:string) {
+    public constructor(theName: string) {
         this.name = theName;
     }
 
-    public move(distanceInMeters:number) {
+    public move(distanceInMeters: number) {
         console.log(`${this.name} moved ${distanceInMeters}m.`);
     }
 }
 /** 3.2 private  */
 //当成员被声明了private 时,他就不能再声明它的 类 的外面被访问.
 class Animal2 {
-    private name:string;
+    private name: string;
 
-    constructor(theName:string) {
+    constructor(theName: string) {
         this.name = theName;
     }
 }
 //new Animal2('cat').name;   //error:'name' is private;
 class Animal3 {
-    private name:string;
+    private name: string;
 
-    constructor(theName:string) {
+    constructor(theName: string) {
         this.name = theName;
     }
 }
@@ -121,9 +136,9 @@ class Rhino extends Animal3 {
 }
 
 class Employee {
-    private name:string;
+    private name: string;
 
-    constructor(theName:string) {
+    constructor(theName: string) {
         this.name = theName;
     }
 }
@@ -142,10 +157,10 @@ animal5 = rhino;
 /** 3.4 readonly 修饰符*/
 // 可以使用readonly 关键字将属性设置为只读的.只读属性必须在声明时或构造函数里被初始化.
 class Octopus {
-    readonly name:string;
-    readonly numberOfLegs:number = 8;
+    readonly name: string;
+    readonly numberOfLegs: number = 8;
 
-    constructor(theName:string) {
+    constructor(theName: string) {
         this.name = theName;
     }
 }
@@ -154,11 +169,11 @@ let dad = new Octopus('Man with the 8 strong legs');
 
 /** 3.5 参数属性  (方法里面的参数)*/
 class Animal4 {
-    constructor(private name:string) {  //参数属性里面
+    constructor(private name: string) {  //参数属性里面
         /** 我们仅在构造函数里使用  private name :string 参数来穿件和初始化name 成员.我们吧声明和复制合并至一处.*/
     }
 
-    move(distance:number) {
+    move(distance: number) {
         console.log(`${this.name} moved ${distance}m.`);
     }
 }
@@ -171,10 +186,10 @@ class Animal4 {
 
 class Grid {
     static origin = {x: 0, y: 0}; //用static(静态)修饰符来表示静态属性
-    constructor(public  scale:number) {
+    constructor(public  scale: number) {
     }
 
-    calculateDistanceFromOrigin(point:{x:number;y:number}) {
+    calculateDistanceFromOrigin(point: {x: number;y: number}) {
         let xDist = (point.x - Grid.origin.x);
         let yDist = (point.y - Grid.origin.y);
         return Math.sqrt(xDist * xDist + yDist * yDist) / this.scale;
@@ -194,13 +209,13 @@ console.log(grid2.calculateDistanceFromOrigin({x: 10, y: 10}));
 /** 3.9.1 构造函数*/
 /** 3.9.2 把类当做接口来使用*/
 class Point {
-    x:number;
-    y:number;
+    x: number;
+    y: number;
 }
 interface Point3d extends Point {
-    z:number;
+    z: number;
 }
-let point3d:Point3d = {x: 1, y: 2, z: 3};
+let point3d: Point3d = {x: 1, y: 2, z: 3};
 
 /**
  * 总结:

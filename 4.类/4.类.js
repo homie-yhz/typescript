@@ -17,6 +17,17 @@ var Greeter = (function () {
     return Greeter;
 }());
 var greeter = new Greeter('world');
+//我们还可以这样做
+var Greeter1 = (function () {
+    function Greeter1(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    Greeter1.prototype.greet = function () {
+        return 'hello,' + this.name;
+    };
+    return Greeter1;
+}());
 /**
  * 使用new 构造了一个 Greeter类的一个实例
  * 调用之前定义的构造函数

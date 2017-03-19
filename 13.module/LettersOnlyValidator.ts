@@ -1,7 +1,7 @@
 /**
  * Created by yindi on 17/3/16.
  */
-import { StringValidator } from "./Validation";
+import {StringValidator} from "./Validation";
 
 const lettersRegexp = /^[A-Za-z]+$/;
 

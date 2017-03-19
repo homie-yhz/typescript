@@ -1,15 +1,15 @@
 /**
  * Created by yindi on 17/3/16.
  */
-import { StringValidator } from "./Validation";
-import { ZipCodeValidator } from "./ZipCodeValidator";
-import { LettersOnlyValidator } from "./LettersOnlyValidator";
+import {StringValidator} from "./Validation";
+import {ZipCodeValidator} from "./ZipCodeValidator";
+import {LettersOnlyValidator} from "./LettersOnlyValidator";
 
 // Some samples to try
 let strings = ["Hello", "98052", "101"];
 
 // Validators to use
-let validators: { [s: string]: StringValidator; } = {};
+let validators: {[s: string]: StringValidator;} = {};
 validators["ZIP code"] = new ZipCodeValidator();
 validators["Letters only"] = new LettersOnlyValidator();
 
